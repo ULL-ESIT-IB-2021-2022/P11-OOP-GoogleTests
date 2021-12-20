@@ -59,7 +59,7 @@ involucra la repetición de tres pasos:
 
 Esta imagen representa este ciclo repetitivo característico del TDD.
 
-![TDD cycle](https://raw.githubusercontent.com/ULL-ESIT-IB-2020-2021/IB-P12-Classes-GTests-Exercism/master/red-green-refactor.png "Red-Green-Refactor")
+![TDD cycle](https://raw.githubusercontent.com/ULL-ESIT-IB-2021-2022/P11-OOP-GoogleTests/main/red-green-refactor.png "Red-Green-Refactor")
 
 El propósito del desarrollo guiado por pruebas es lograr un código limpio que funcione correctamente.
 La idea es que los requisitos sean traducidos a pruebas (tests), y de este modo, cuando las pruebas pasen 
