@@ -94,7 +94,7 @@ El primer paso para usar gtest es su instalación.
 Siga para ello los siguientes pasos:
 
 ```
-$ git clone https://github.com/google/googletest.git -b release-1.10.0
+$ git clone https://github.com/google/googletest.git -b release-1.11.0
 $ cd googletest/
 $ mkdir build
 $ cd build/
@@ -105,12 +105,12 @@ $ sudo make install
 que se explican en el documento 
 [Standalone CMake Project](https://github.com/google/googletest/blob/master/googletest/README.md#standalone-cmake-project).
 El comando `sudo make install` (obsérvese que se ejecuta con privilegios de *root*) 
-instalará gtest en el directorio `/usr/local/` del sistema , de modo que en los directorios
+instalará gtest en el directorio `/usr/local/` del sistema, de modo que en los directorios
 ```
 /usr/local/include
 /usr/local/lib
 ```
-se alojan los ficheros de cabecera (`*.h`) y las librerías (`*.a`) necesarios para usar gtest.
+se alojarán los ficheros de cabecera (`*.h`) y las librerías (`*.a`) necesarios para usar gtest.
 Una vez instalada la librería puede eliminar el directorio `googletest` en el que copió el repositorio.
 
 El repositorio de esta práctica contiene un directorio `gtests` con el siguiente contenido:
@@ -234,12 +234,13 @@ Es fácil encontrar en la web mucha documentación sobre TDD.
 A modo de ejemplo e introducción se recomienda el estudio de
 [Mejorar la calidad del código mediante la prueba unitaria](https://www.mql5.com/es/articles/1579).
 
-#####################################
 ### Trabajo previo
-Antes de realizar los ejercicios de esta práctica, estudie detenidamente el Capítulo 12 (epígrafes 12.1-12.15) del
+Antes de realizar los ejercicios de esta práctica, estudie detenidamente los capítulo 12 y 13(epígrafes 12.1-12.15, 13.1-13.13) del
 [tutorial learncpp](https://www.learncpp.com/cpp-tutorial/81-welcome-to-object-oriented-programming/).
 Muchos de los ejemplos de ese tutorial son los mismos que se utilizan en las clases de la asignatura,
 cuyo material (transparencias y códigos de ejemplo) debiera Ud. también estudiar.
+Las transparencias de la asignatura debieran servirle de guía a la hora de determinar qué partes del tutorial
+ha de estudiar con mayor profundidad.
 
 Ponga especial atención en estos ejercicios en seguir las normas de *Buenas prácticas* de programación a la
 hora de diseñar programas orientados a objetos que se indican en las transparencias de la asignatura.
@@ -276,50 +277,7 @@ desarrollando.
 contendrá la función *main()*) que declare objetos de la clase en cuestión y compruebe el correcto
 funcionamiento de los métodos de la clase.
 
-1. Desarrolle una clase `Persona` cuyos objetos han de contener al menos atributos para representar nombre,
-apellidos y la edad de la persona.
-Incluya asimismo un método *Print()* que permita imprimir en pantalla la información de una instancia de la
-clase.
-
-Para este ejercicio se ha incluido un directorio `01-persona` que incluye un esqueleto básico para la clase a
-desarrollar así como un fichero `CMakeLists.txt` para su compilación.
-
-2. Desarrolle una clase `Rectangulo` que contemple como atributos la anchura y altura del rectángulo.
-Incluya métodos que permitan calcular el área y el perímetro del rectángulo representado y un método
-*Display()* que permita mostrar la información correspondiente a un objeto rectánculo de la clase.
-
-3. Desarrolle una clase `CuentaBancaria` que contemple como atributos 
-* El número de la cuenta (20 dígitos)
-* El nombre del titular
-* El saldo de la cuenta
-
-Incluya asimismo al menos los siguientes métodos:
-* Un constructor que tome como parámetros el el número de cuenta, el titular y el saldo
-* *Depositar* que permita aumentar el saldo de la cuenta en una cierta cantidad
-* *Extraer* que permita retirar una cierta cantidad de dinero
-* *Mostrar* que permita mostrar los detalles de la cuenta
-* *Impuestos* que calcule un impuesto del 5% sobre el saldo de la cuenta
-
-4. Desarrolle una clase `Point2D` para representar puntos en el espacio bidimensional a través de sus
-coordenadas. 
-Incluya al menos los siguientes métodos:
-* *Show()* para mostrar en pantalla las coordenadas del punto
-* *Move* para cambiar las coordenadas del punto
-* *Distance* para calcular la 
-[distancia](https://www.mathwarehouse.com/algebra/distance_formula/index.php)
-entre dos puntos
-* *Middle* para calcular el 
-[punto medio](https://en.wikipedia.org/wiki/Midpoint)
-del segmento que une dos puntos
-
-5. Diseñe una clase `Circulo` que permita representar círculos utilizando como atributos el centro 
-y el radio del círculo.
-Incluya métodos *Area*, *Perimetro* y *Print* que permitan respectivamente calcular el área, el perímetro del
-círculo así como imprimir en pantalla la información relativa al círculo en cuestión.
-Incluya asimimsmo un método *EsInterior* que determine si un punto del espacio cartesiano `(x, y)` está o no
-dentro del círculo.
-
-6. Desarrolle una clase `Vector3D` para representar vectores en el espacio tridimensional.
+1. Desarrolle una clase `Vector3D` para representar vectores en el espacio tridimensional.
 La clase contemplará métodos al menos para:
 * Imprimir en pantalla las componentes de un vector en un formato adecuado 
 * Sumar un par de vectores
@@ -327,40 +285,58 @@ La clase contemplará métodos al menos para:
 * Calcular el producto escalar de dos vectores
 * Calcular el módulo de un vector 
 * Normalizar un vector
+Para conseguir estas funcionalidades, sobrecargue los operadores que sea necesario.
 
-7. Desarrolle una clase `Calcula` que permita la realización de diferentes cálculos con números enteros.
-Incluya los siguientes métodos en la clase:
-* *Factorial* que permita calcular el factorial de un número
-* *Suma* que calcule la suma de los primeros `n` números: `1 + 2 + 3 + ... + n`.
-* *EsPrimo* que permita determinar si un determinado número es primo
-* *SonPrimosRelativos* que permita determinar si dos números son
+2. Desarrolle una clase `ComputeInt` que permita la realización de diferentes cálculos con números enteros.
+Incluya al menos los siguientes métodos en la clase:
+* *Factorial* que permita calcular el factorial de un número (Problema
+[Factorial](https://jutge.org/problems/P48997_es)
+de Jutge).
+* *SumSerie* que calcule la suma de los primeros `n` números: `1 + 2 + 3 + ... + n`.
+* *IsArmstrong* que permita determinar si un número dado es un número de Armstrong (véase la práctica 9 de
+este curso para la definición de número de Armstrong).
+* *IsPerfect* que permita determinar si un número es perfecto (Problema 
+[Perfect numbers](https://jutge.org/problems/P34091_en/statement)
+de Jutge).
+* *IsPrime* que permita determinar si un determinado número es primo (Problema
+[Primality](https://jutge.org/problems/P48713)
+de Jutge).
+* *IsPerfectPrime* que permita determinar si un determinado número es un primo perfecto (Problema
+[Perfect primes](https://jutge.org/problems/P90664_en) 
+de Jutge).
+* *IsBalanced* que permita determinar si un determinado número es equilibrado (Problema
+[Balanced numbers](https://jutge.org/problems/P26492_en) 
+de Jutge).
+* *AreRelativePrimes* que permita determinar si dos números son
 [mutuamente primos](https://en.wikipedia.org/wiki/Coprime_integers),
 es decir, si su único divisor común es el 1
-* *TablaMultiplicar* que imprima en pantalla la tabla de multiplicar de un determinado número
-* *TodasTablasMultiplicar* que imprima en un fichero todas las tablas de multiplicación entera para 1, 2, ..., 9.
 La función *main* del programa que usara esta clase podría contener sentencias como:
 ```
 main() {
-  Calcula calcula; 
-  std::cout << calcula.Factorial(5) << std::endl; 
-  std::cout << calcula.Suma(100) << std::endl; 
-  std::cout << calcula.EsPrimo(13) << std::endl; 
-  std::cout << calcula.SonPrimosRelativos(13, 17) << std::endl; 
+  ComputeInt computation; 
+  std::cout << computation.Factorial(5) << std::endl; 
+  std::cout << computation.SumSerie(100) << std::endl; 
+  std::cout << computation.IsPrime(13) << std::endl; 
+  std::cout << computation.SonPrimosRelativos(13, 17) << std::endl; 
 }
 ```
 
-8. La clase Fecha.
-
+3. La clase Fecha.
 Desarrolle una clase `Fecha` que permita representar y gestionar fechas.
 Incorpore en la clase los miembros de datos y métodos que considere adecuados para la finalidad que se
 persigue en este ejercicio.
-Incluya un método que permita determinar si el año correspondiente a una fecha es un año bisiesto o
+Desarrolle para esta clase la sobrecarga de los operadores de inserción y extracción en flujos así como el
+operador de comparación que permita determinar si una fecha es menor (anterior cronológicamente) que otra.
+Incluya asimismo un método que permita determinar si el año correspondiente a una fecha es un año bisiesto o
 no.
 Resuelva el problema 
 [Valid Dates](https://jutge.org/problems/P58459_en)
 de Jutge y súbalo a la plataforma para su evaluación.
 A partir de la solución de ese problema haga que el constructor de la clase `Fecha` solo admita una fecha si
 es válida.
+Resuelva igualmente el problema
+[Leap years](https://jutge.org/problems/P43135_en)
+e incluya en su clase un método que permita determinar si un año es bisiesto.
 
 Realice un programa cliente `fechas.cc` que tome como parámetro una fecha, un número y un nombre de fichero:
 ```
@@ -371,13 +347,60 @@ Pruebe ./fechas --help para más información
 El programa deberá imprimir en el fichero de salida (tercer parámetro) las N (segundo parámetro) fechas cronológicamente posteriores a la
 introducida (primer parámetro) con una separación de un día entre fechas sucesivas.
 
+4. La clase `Complejo`.
+Todo
+[número complejo](https://es.wikipedia.org/wiki/N%C3%BAmero_complejo)
+puede representarse como la suma de un número real y un número imaginario, de la forma `a + bi` donde el
+término `a` es la parte real, `b` la parte imaginaria e `i` la
+[unidad imaginaria](https://es.wikipedia.org/wiki/Unidad_imaginaria).
+
+En este ejercicio se propone desarrollar una clase `Complejo` que permita operar con números complejos.
+
+Separe el diseño de su clase `Complejo` en dos ficheros, `complejo.h` y `complejo.cc` conteniendo
+respectivamente la declaración y la definición de la clase.
+Siga las indicaciones del tutorial 
+[Class code and header files](https://www.learncpp.com/cpp-tutorial/89-class-code-and-header-files/)
+para realizar esta separación de su clase en dos ficheros.
+Siga igualmente las indicaciones del tutorial 
+[Header guards](https://www.learncpp.com/cpp-tutorial/header-guards/)
+para incluir *header guards* (guardas de cabecera) en sus ficheros de
+definiciones (`*.h`) de modo que se evite la inclusión múltiple del mismo fichero.
+
+Desarrolle un programa cliente `complejos.cc` que permita operar con números complejos y haga uso de la clase `Complejo` que diseñe.
+La clase `Complejo` ha de contener al menos métodos que implementen la sobrecarga de los operadores de suma y
+resta de números complejos así como de los operadores de inserción y extracción en flujos (*streams*).
+Así la función `main` del programa `complejos.cc` podría contener sentencias como las siguientes:
+
+```
+main() {
+  Complejo complejo1{4, 5}, complejo2{7, -8};
+  Complejo resultado;
+  resultado = complejo1 + complejo2;
+  std::cout << resultado;
+  resultado = complejo1 - complejo2;
+  std::cout << resultado;
+}
+```
+Incluya (discrecionalmente) cualesquiera otras operaciones que considere adecuadas como métodos en la clase `Complejo`.
+
+Desarrolle un conjunto de tests (gtest) que incluya al menos dos tests para cada uno de los métodos que incluya en su programa.
+
 ### Referencias
+* [Desarrollo dirigido por Tests](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas)
+* [Google Test](https://en.wikipedia.org/wiki/Google_Test)
+* [Cómo usar Google Test para C++ en VSC](https://docs.microsoft.com/es-es/visualstudio/test/how-to-use-google-test-for-cpp?view=vs-2019), 
+* [Google Tests build instructions](https://github.com/google/googletest/blob/master/googletest/README.md#standalone-cmake-project)
+* [Googletest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
+* [Mejorar la calidad del código mediante la prueba unitaria](https://www.mql5.com/es/articles/1579).
+* [Google Test + gcover. Una lista de recetas](https://usingstdcpp.files.wordpress.com/2016/11/gtest.pdf)
 * [CMake](https://es.wikipedia.org/wiki/CMake)
 * [Introduction to modern CMake for beginners](https://www.internalpointers.com/post/modern-cmake-beginner-introduction)
 * [Welcome to object-oriented programming - Tutorial learnCPP](https://www.learncpp.com/cpp-tutorial/81-welcome-to-object-oriented-programming/).
 *	[Class code and header files](https://www.learncpp.com/cpp-tutorial/89-class-code-and-header-files/)
 * [Header guards](https://www.learncpp.com/cpp-tutorial/header-guards/)
+* [Números complejos](https://es.wikipedia.org/wiki/N%C3%BAmero_complejo)
 * [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 * [Comments](https://google.github.io/styleguide/cppguide.html#Comments)
 * [Documenting C++ Code](https://developer.lsst.io/cpp/api-docs.html)
 * [Doxygen](https://en.wikipedia.org/wiki/Doxygen)
+### Referencias
