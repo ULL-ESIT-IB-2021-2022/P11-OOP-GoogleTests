@@ -294,14 +294,14 @@ La clase contemplará métodos al menos para:
 Para conseguir estas funcionalidades, sobrecargue los operadores que sea necesario.
 Para este primer ejercicio se suministra en el directorio `vector3D` un esqueleto del código que ha de
 desarrollar.
-Complete Ud. el código (y los tests) necesario en los diferentes ficheros de ese proyecto.
+Complete el código (y los tests) necesario en los diferentes ficheros de ese proyecto.
 
 2. Desarrolle una clase `ComputeInt` que permita la realización de diferentes cálculos con números enteros.
 Incluya al menos los siguientes métodos en la clase:
 * *Factorial* que permita calcular el factorial de un número (Problema
 [Factorial](https://jutge.org/problems/P48997_es)
 de Jutge).
-* *SumSerie* que calcule la suma de los primeros `n` números: `1 + 2 + 3 + ... + n`.
+* *SumSerie* que calcule la suma de los primeros `n` términos de la serie: `1 + 2 + 3 + ... + n`.
 * *IsArmstrong* que permita determinar si un número dado es un número de Armstrong (véase la práctica 9 de
 este curso para la definición de número de Armstrong).
 * *IsPerfect* que permita determinar si un número es perfecto (Problema 
@@ -319,6 +319,7 @@ de Jutge).
 * *AreRelativePrimes* que permita determinar si dos números son
 [mutuamente primos](https://en.wikipedia.org/wiki/Coprime_integers),
 es decir, si su único divisor común es el 1
+
 La función *main* del programa que usara esta clase podría contener sentencias como:
 ```
 main() {
@@ -331,6 +332,7 @@ main() {
 ```
 
 3. La clase Fecha.
+
 Desarrolle una clase `Fecha` que permita representar y gestionar fechas.
 Incorpore en la clase los miembros de datos y métodos que considere adecuados para la finalidad que se
 persigue en este ejercicio.
@@ -357,6 +359,7 @@ El programa deberá imprimir en el fichero de salida (tercer parámetro) las N (
 introducida (primer parámetro) con una separación de un día entre fechas sucesivas.
 
 4. La clase `Complejo`.
+
 Todo
 [número complejo](https://es.wikipedia.org/wiki/N%C3%BAmero_complejo)
 puede representarse como la suma de un número real y un número imaginario, de la forma `a + bi` donde el
