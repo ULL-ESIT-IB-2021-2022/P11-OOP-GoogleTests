@@ -144,7 +144,7 @@ gtests
       └── test_square_root.cc
 ```
 Siguiendo la costumbre habitual, el subdirectorio `src` contiene el código fuente del proyecto, que en este
-caso es un proyecto ficticio que se usa para ilustrar el uso de tests unitarios.
+caso es un proyecto ficticio que se utiliza para ilustrar el uso de tests unitarios.
 A modo de ejemplo, el programa principal del proyecto `main_program.cc` (véase su código fuente)
 invoca a diferentes funciones de carácter matemático que han sido
 desarrolladas por el usuario (ficheros `src/*.cc` y `src/*.h`).
@@ -199,9 +199,8 @@ TEST(TestSuiteName, TestName) {
 El primer parámetro de la macro TEST (`TestSuiteName`) es el nombre que se le da a un conjunto de tests
 relacionados mientras que el segundo parámetro es el nombre que se le ha dado al test.
 
-El test del fichero `test_date` es un ejemplo que comprueba métodos de una clase definida por el
-usuario.
-En este caso el test comprueba un par de métodos de la clase `Date`.
+El test del fichero `test_date.cc` es un ejemplo que comprueba métodos de la clase `Date` definida por el
+usuario (ficheros `date.cc` y `date.h`.
 
 Los ficheros `test/sample2_unittest.cc` y  `src/sample2.*` están tomados de
 [Googletest Samples](https://github.com/google/googletest/blob/master/googletest/docs/samples.md) 
@@ -226,8 +225,8 @@ función, al menos dos tests: uno para las situaciones "normales" y otro para si
 La regla a seguir de ahora en adelante es **Convierta en un hábito la escritura de tests para sus programas**.
 Desarrolle siempre sus funciones iterando el famoso ciclo TDD que ya se ha expuesto en este documento:
 * Escriba un test que falle y que define una mejora deseada o una nueva función
-* Escirba el código (función, método) que haga que la prueba pase satisfactoriamente 
-* Finalmente refactoriza el nuevo código hasta obtener un resultado satisfactorio
+* Escriba el código (función, método) que haga que la prueba pase satisfactoriamente 
+* Finalmente refactorice el nuevo código hasta obtener un resultado satisfactorio
 
 Es fácil encontrar en la web mucha documentación sobre TDD. 
 A modo de ejemplo e introducción se recomienda el estudio de
@@ -273,10 +272,9 @@ propuestos sería la siguiente:
 * Desarrolle cada ejercicio de forma incremental, probando cada una de las funciones que va Ud.
 desarrollando. 
 * Al realizar los ejercicios, ponga en práctica el ciclo de desarrollo TDD:
-  * **Antes** de desarrollar el código de cualquiera de los métodos de una determinada clase, comience por desarrollar 
-  los test unitarios que utilizará para validar el código correspondiente a ese método.
-  * Desarrolle a continuación el código del método.
-  * Refactorice el nuevo código hasta que funcione como desea.
+  * Escriba un test que falle y que define una mejora deseada o una nueva función
+  * Escriba el código (función, método) que haga que la prueba pase satisfactoriamente 
+  * Finalmente refactorice el nuevo código hasta obtener un resultado satisfactorio
 * Utilice el depurador integrado de VSC para depurar los programas de modo que funcionen correctamente.
 * Todos estos programas han de tomar su entrada (si es que hay alguna) como parámetros pasados por línea de comandos.
 * Para cada una de las clases que se pide desarrollar, desarrolle también un programa cliente (el que
