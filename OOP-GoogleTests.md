@@ -247,13 +247,12 @@ hora de diseñar programas orientados a objetos que se indican en las transparen
 
 ### Ejercicios
 * Al realizar los ejercicios cree dentro de su repositorio de esta práctica un directorio diferente
-con nombre significativo (personas, rectangulos, circulos p. ej.) para cada uno de ellos 
-y con un contenido similar al que se ha entregado para la aplicación de ejemplo `fibonacci_sum`.
+con nombre significativo (vectors, compute, fecha, complejos p. ej.) para cada uno de ellos.
 * Tómese como ejemplo el primero de los ejercicios y haga que cada uno de sus programas conste de 3 ficheros:
-  * Un fichero `personas.cc` (programa principal) que contendrá la función `main` e incluirá el fichero de cabecera `persona.h`.
-  * El fichero `persona.h` que contendrá las declaraciones correspondientes a la clase `Persona`.
-  * El fichero `persona.cc` que contendrá el código (definiciones) correspondientes a la clase `Persona`.
-  * Obviamente si el programa principal (`personas.cc`) utiliza otras clases, debería incluir (`#include`) los
+  * Un fichero `vector_main.cc` (programa principal) que contendrá la función `main` e incluirá el fichero de cabecera `vector.h`.
+  * El fichero `vector.h` que contendrá las declaraciones correspondientes a la clase `Vector`.
+  * El fichero `vector.cc` que contendrá el código (definiciones) correspondientes a la clase `Vector`.
+  * Obviamente si el programa principal (`vectors.cc`) utiliza otras clases, debería incluir (`#include`) los
   correspondientes ficheros de cabecera.
   * Modifique estos nombres de ficheros para adaptarlos al ejercicio en cuestión.
 * La compilación del programa correspondiente a cada ejercicio se automatizará con un fichero `CMakeLists.txt`
@@ -261,16 +260,21 @@ que se utilizará con `cmake`.
 Así pues, la estructura de directorios y sus contenidos correspondiente al primero de los ejercicios
 propuestos sería la siguiente:
 ```
-01-persona
-    ├── build           // Directorio inicialmente vacío para alojar el programa ejecutable
-    ├── CMakeLists.txt  // Fichero de configuración para cmake
-    └── src             // Directorio contenedor del código fuente del ejercicio
-        ├── persona.cc
-        ├── persona.h
-        └── persona_main.cc
+ vector3D
+ ├── CMakeLists.txt  // Fichero de configuración para cmake
+ ├── src             // Directorio contenedor del código fuente del ejercicio
+ │   ├── Makefile
+ │   ├── vector.cc
+ │   ├── vector.h
+ │   └── vector_main.cc
+ └── test            // Directorio contenedor del código de los tests del ejercicio
+     ├── gtest_main.cc
+     └── test_vector.cc
 ```
 * Desarrolle cada ejercicio de forma incremental, probando cada una de las funciones que va Ud.
 desarrollando. 
+* **Antes** de desarrollar el código de cualquiera de los métodos de una determinada clase, desarrolle antes
+  los test que utilizará para validar el código correspondiente a ese método.
 * Utilice el depurador integrado de VSC para depurar los programas de modo que funcionen correctamente.
 * Todos estos programas han de tomar su entrada (si es que hay alguna) como parámetros pasados por línea de comandos.
 * Para cada una de las clases que se pide desarrollar, desarrolle también un programa cliente (el que
