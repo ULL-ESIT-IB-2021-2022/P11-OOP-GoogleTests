@@ -291,6 +291,9 @@ La clase contemplará métodos al menos para:
 * Calcular el módulo de un vector 
 * Normalizar un vector
 Para conseguir estas funcionalidades, sobrecargue los operadores que sea necesario.
+Para este primer ejercicio se suministra en el directorio `vector3D` un esqueleto del código que ha de
+desarrollar.
+Complete Ud. el código (y los tests) necesario en los diferentes ficheros de ese proyecto.
 
 2. Desarrolle una clase `ComputeInt` que permita la realización de diferentes cálculos con números enteros.
 Incluya al menos los siguientes métodos en la clase:
