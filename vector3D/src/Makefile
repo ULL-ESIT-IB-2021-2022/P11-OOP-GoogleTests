@@ -8,9 +8,9 @@
 # @brief A Makefile for the Vector class code
 # 
 
-CXX = g++						                              # The C++ compiler command
-CXXFLAGS = -std=c++17 -g -Wall -pedantic -Weffc++ # The C++ compiler options (C++14, preserve debug symbols and warn all)
-LDFLAGS =						                              # The linker options (if any)
+CXX = g++						                                      # C++ compiler command
+CXXFLAGS = -std=c++17 -g -Wall -Wextra -pedantic -Weffc++ # C++ compiler options 
+LDFLAGS =						                                      # Linker options (if any)
 
 # The all target builds all of the programs handled by the makefile.
 all: vector_main
