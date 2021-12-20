@@ -381,7 +381,7 @@ definiciones (`*.h`) de modo que se evite la inclusión múltiple del mismo fich
 Desarrolle un programa cliente `complejos.cc` que permita operar con números complejos y haga uso de la clase `Complejo` que diseñe.
 La clase `Complejo` ha de contener al menos métodos que implementen la sobrecarga de los operadores de suma y
 resta de números complejos así como de los operadores de inserción y extracción en flujos (*streams*).
-Así la función `main` del programa `complejos.cc` podría contener sentencias como las siguientes:
+Así la función `main` del programa `complejos.cc` podría contener (entre otras) sentencias como las siguientes:
 
 ```
 main() {
@@ -412,7 +412,4 @@ Desarrolle un conjunto de tests (gtest) que incluya al menos dos tests para cada
 * [Header guards](https://www.learncpp.com/cpp-tutorial/header-guards/)
 * [Números complejos](https://es.wikipedia.org/wiki/N%C3%BAmero_complejo)
 * [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
-* [Comments](https://google.github.io/styleguide/cppguide.html#Comments)
-* [Documenting C++ Code](https://developer.lsst.io/cpp/api-docs.html)
-* [Doxygen](https://en.wikipedia.org/wiki/Doxygen)
 ### Referencias
