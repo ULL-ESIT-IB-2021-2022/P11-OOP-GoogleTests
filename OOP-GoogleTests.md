@@ -1,13 +1,13 @@
-# Práctica 11. Introducción a la Programación Orientada a Objetos. Clases. La herramienta CMake.
+# Práctica 11. Programación Orientada a Objetos. Google Tests.
 
-# Factor de ponderación: 0
+# Factor de ponderación: 10
 
 ### Objetivos
 Los objetivos de esta práctica son que el alumnado:
 * Desarrolle programas sencillos en C++ utilizando clases, así como todas las características del lenguaje estudiadas anteriormente
+* Conozca el framework de testing de Google (Google Tests) y sea capaz de desarrollar tests unitarios sencillos
 * Conozca la herramienta CMake y sepa usarla para construir sus programas ejecutables
 * Incluya en sus programas comentarios adecuados en el formato requerido por Doxygen
-* Profundice en el uso de funciones en sus programas.
 * Aloje todo el código fuente de sus programas en repositorios privados de GitHub
 * Sepa depurar sus programas usando la interfaz de depuración del VSC
 
@@ -24,6 +24,8 @@ El alumnado ha de acreditar que:
 * Es capaz de escribir un fichero CMakeLists.txt para automatizar el proceso de compilación de sus programas.
 * Todos sus programas se estructuran en directorios diferentes para cada "proyecto" haciendo que cada uno de
   ellos contenga un fichero `CMakeLists.txt` con la configuración de despliegue del proyecto.
+* Se ha programado un conjunto mínimo de tests unitarios que comprueban el correcto funcionamiento de las
+  funciones y métodos que se desarrollan para resolver los ejercicios.
 * Todas las prácticas realizadas hasta la fecha se encuentran alojadas en repositorios de
 [GitHub](https://github.com/).
 * Los programas deben contener comentarios adecuados en el formato requerido por 
@@ -39,82 +41,200 @@ El alumnado ha de acreditar que:
   de GitHub
 * Conoce las técnicas básicas de depuración usando VSC y su depurador integrado.
 
-### La herramienta `cmake`
-[CMake](https://es.wikipedia.org/wiki/CMake)
-es lo que se conoce como un sistema de metaconstrucción. 
-No se utiliza para construir (generar, *build* en inglés) el programa ejecutable de una aplicación sino
-que produce ficheros de proyecto nativos para la plataforma de destino. 
-Por ejemplo, CMake en Windows generará una solución para Visual Studio; 
-en Linux generará un fichero Makefile; 
-en macOS generará un proyecto para XCode y así sucesivamente. 
-Eso es lo que la palabra *meta* indica: CMake construye sistemas de construcción 
-(*builders*). 
-La herramienta `make` es un sistema de construcción, posiblemente el más común.
+### La plataforma de testing de Google
+Tal como recoge la
+[Wikipedia](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas),
+El desarrollo dirigido por tests (TDD, *Test Driven Development* por sus siglas en inglés) es una práctica de 
+ingeniería de software que involucra otras dos técnicas: 
+escribir las pruebas primero (Test First Development) y 
+[Refactorización](https://es.wikipedia.org/wiki/Refactorizaci%C3%B3n)
+(Refactoring) o reestructuración del código.
+Para escribir las pruebas generalmente se utilizan las pruebas unitarias (unit test en inglés). 
 
-Un proyecto basado en CMake siempre contiene un fichero `CMakeLists.txt`
-que describe cómo se estructura el proyecto, la lista de ficheros 
-de código fuente que se ha de compilar, lo que CMake debe generar a partir de él y así sucesivamente. 
-Se trata en definitiva de un fichero de configuración para la herramienta CMake.
-CMake leerá las instrucciones de ese fichero y producirá el resultado deseado. 
+El TDD se basa en la repetición de un ciclo de desarrollo muy corto que
+involucra la repetición de tres pasos:
+1. En primer lugar el desarrollador escribe un caso de prueba (test) que falla (a propósito) y que define una mejora deseada (habitualmente una nueva función o método)
+2. A continuación se desarrolla el código (de la función) que hace que la prueba pase satisfactoriamente 
+3. Finalmente refactoriza el nuevo código hasta obtener un resultado satisfactorio
 
-Una característica positiva de CMake es el llamado "out-of-source build". 
-Cualquier fichero requerido para la construcción final, incluyendo los ejecutables, 
-será almacenado en un directorio de construcción separado (habitualmente llamado `build/`). 
-Esto evita que el directorio de origen que contiene el código fuente se llene de 
-ficheros no deseados y hace que sea fácil volver a empezar: sólo hay que eliminar 
-el directorio destino de la compilación (directorio `build`) y listo.
+Esta imagen representa este ciclo repetitivo característico del TDD.
 
-CMake es una herramienta muy potente que admite multitud de opciones.
-En 
-[la documentación](https://cmake.org/cmake/help/latest/index.html) 
-de la herramienta se pueden estudiar en profundidad estas opciones, pero para la utilización que perseguimos
-realizar en esta asignatura bastará con que estudie detenidamente 
-[este breve tutorial](https://www.internalpointers.com/post/modern-cmake-beginner-introduction).
+![TDD cycle](https://raw.githubusercontent.com/ULL-ESIT-IB-2020-2021/IB-P12-Classes-GTests-Exercism/master/red-green-refactor.png "Red-Green-Refactor")
 
-En el directorio raíz del repositorio de esta práctica hallará un subdirectorio `fibonacci_sum` con el
-siguiente contenido:
+El propósito del desarrollo guiado por pruebas es lograr un código limpio que funcione correctamente.
+La idea es que los requisitos sean traducidos a pruebas (tests), y de este modo, cuando las pruebas pasen 
+se garantizará que el software cumple con los requisitos que se han establecido.
+
+
+Las "unidades" de código para las que se realizan tests habitualmente son clases, funciones o grupos ellas. 
+Supongamos por ejemplo que se está implementando una función (unidad de código) que calcula la suma de dos números enteros.
+Una prueba (test unitario) es un código que valida la corrección de esa función: se podría comprobar que lo
+que reciba la función sean realmente dos parámetros, y que esos dos parámetros sean números, y que lo que
+devuelva la función sea otro número, y que ese número corresponda realmente con la suma. 
+Todas estas podrían ser posibles pruebas unitarias que se realicen sobre la función.
+Las pruebas unitarias  se suelen realizar utilizando entornos de pruebas (testing) especializados.
+
+Existen diversas plataformas para el desarrollo de tests unitarios en C++.
+Algunas de las de uso más extendido son
+[Boost.Test](https://www.boost.org/doc/libs/1_49_0/libs/test/doc/html/index.html),
+[CppUnit](https://sourceforge.net/projects/cppunit/),
+[Cute](https://cute-test.com/)
+aunque hay
+[muchas otras](https://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#C++)
+
+En esta práctica se propone utilizar el framework 
+[Google Test](https://en.wikipedia.org/wiki/Google_Test),
+(también conocido como gtest) que es una librería de pruebas unitarias (*unit tests*) para C++.
+El entorno permite que los tests se ejecuten de una en uno o todos a la vez. 
+Google Tests puede ser utilizado en 
+[Visual Studio Code](https://docs.microsoft.com/es-es/visualstudio/test/how-to-use-google-test-for-cpp?view=vs-2019), 
+aunque en este documento se propone un uso de la plataforma de modo independiente de VSC.
+
+El primer paso para usar gtest es su instalación. 
+Siga para ello los siguientes pasos:
 
 ```
-  fibonacci_sum
-  ├── CMakeLists.txt             // Fichero de configuración para CMake
-  ├── doc                        // Documentación
-  ├── fibonacci.Doxyfile         // Fichero de configuración para Doxygen
-  ├── LEE_ME.txt
-  └── src                        // Código fuente de la aplicación
-      ├── fibonacci_main.cc
-      ├── fibonacci_sum.cc
-      ├── fibonacci_sum.h
-      ├── tools.cc
-      └── tools.h
+$ git clone https://github.com/google/googletest.git -b release-1.10.0
+$ cd googletest/
+$ mkdir build
+$ cd build/
+$ cmake .. -DBUILD_GMOCK=OFF
+$ make
+$ sudo make install
 ```
-Esa estructura de directorios (a la que se añadirán los directorios `build` y -opcionalmente `lib`-)
-es habitual en proyectos de desarrollo de software.
-En este ejemplo se ha tomado la aplicación `fibonacci_sum` que calcula la suma de términos pares de la serie
-de Fibonacci y se ha fragmentado la aplicación en 5 ficheros de código (`*.cc` y `*.h`).
-El fichero de configuración `CMakeLists.txt` contiene la configuración que se utiliza para el despliegue de la
-aplicación.
-Al efecto de ilustrar este proceso, se crea una librería `libtools.a` que se aloja en el directorio `lib`. 
-El programa binario (`fibonacci_sum`) se construye enlazando esta librería con el resto del código objeto
-producto de la compilación.
+que se explican en el documento 
+[Standalone CMake Project](https://github.com/google/googletest/blob/master/googletest/README.md#standalone-cmake-project).
+El comando `sudo make install` (obsérvese que se ejecuta con privilegios de *root*) 
+instalará gtest en el directorio `/usr/local/` del sistema , de modo que en los directorios
+```
+/usr/local/include
+/usr/local/lib
+```
+se alojan los ficheros de cabecera (`*.h`) y las librerías (`*.a`) necesarios para usar gtest.
+Una vez instalada la librería puede eliminar el directorio `googletest` en el que copió el repositorio.
 
-Para construir la aplicación, siga los siguientes pasos (que son los habituales):
+El repositorio de esta práctica contiene un directorio `gtests` con el siguiente contenido:
 ```
-$ cd fibonacci_sum
+gtests
+  ├── CMakeLists.txt
+  ├── src
+  │   ├── addition.cc
+  │   ├── addition.h
+  │   ├── date.cc
+  │   ├── date_client_program.cc
+  │   ├── date.h
+  │   ├── factorial.cc
+  │   ├── factorial.h
+  │   ├── formula.cc
+  │   ├── formula.h
+  │   ├── main_program.cc
+  │   ├── multiply.cc
+  │   ├── multiply.h
+  │   ├── sample2.cc
+  │   ├── sample2.h
+  │   ├── square_root.cc
+  │   └── square_root.h
+  └── test
+      ├── gtest_main.cc
+      ├── sample2_unittest.cc
+      ├── test_addition.cc
+      ├── test_date.cc
+      ├── test_factorial.cc
+      ├── test_formula.cc
+      ├── test_multiply.cc
+      └── test_square_root.cc
+```
+Siguiendo la costumbre habitual, el subdirectorio `src` contiene el código fuente del proyecto, que en este
+caso es un proyecto ficticio que se usa para ilustrar el uso de tests unitarios.
+A modo de ejemplo, el programa principal del proyecto `main_program.cc` (véase su código fuente)
+invoca a diferentes funciones de carácter matemático que han sido
+desarrolladas por el usuario (ficheros `src/*.cc` y `src/*.h`).
+
+Compile el proyecto cuya configuración viene especificada en el fichero `CMakeLists.txt` ejecutando en el directorio
+`gtests`:
+```
 $ mkdir build
 $ cd build
 $ cmake ..
 $ make
 ```
+Esta secuencia de comandos creará en el subdirectorio `build` sendos programas ejecutables: `user_program` y `runTests`.
+El primero de ellos corresponde con el programa principal del usuario.
+Pruebe a ejecutarlo y revise el código de las diferentes funciones que utiliza ese programa.
 
-El comando `cmake`, usando el fichero de configuración `CMakeLists.txt`, creará en el directorio `build` el fichero `Makefile`
-que utiliza el comando `make` para construir la aplicación, cuyo programa binario `fibonacci_sum` se crea
-asimismo en el directorio `build`.
+Por otra parte, el programa `runTests` ejecuta todos los tests unitarios que se han desarrollado para comprobar el correcto
+funcionamiento de las diferentes funciones que intervienen en el programa del usuario.
+Pruebe asimismo a ejecutarlo.
+Ambos programas se pueden compilar de forma independiente ejecutando en el diectorio `build`:
 
-Experimente con este fichero de configuración entregado, `CMakeLists.txt` para adaptarlo a cada uno
-de sus propios proyectos (ejercicios de la práctica).
-No es necesario en principio, que construya librerías propias para sus programas.
-La construcción de una librería se ha incluído en este ejemplo con la finalidad de ilustrar ese proceso.
+```
+$ make user_program
+```
+o bien:
+```
+$ make runTests
+```
 
+Estudie el contenido del fichero `CMakeLists.txt` y observe en el mismo (comandos `add_executable(runTests ...)`
+y `add_executable(user_program)`) los ficheros que están involucrados en cada uno de los dos programas
+anteriores.
+
+Lo que más interesa estudiar a continuación es el contenido del directorio `tests`.
+En ese directorio, el programa `gtest_main.cc` invoca la ejecución de todos los tests mientras que los
+diferentes ficheros `test_*.cc` contienen los tests correspondientes a las diferentes funciones del usuario
+que utiliza el programa `main_program.cc`.
+
+Todos los ficheros del directorio `tests` contienen la línea
+```
+include <gtest/gtest.h>
+```
+
+de inclusión del fichero de cabecera donde se definen las macros y funciones de la librería de testing de
+Google que se enlaza (*link*) con el programa.
+Cada uno de esos ficheros contiene uno o más tests que tienen la siguiente estructura:
+```
+TEST(TestSuiteName, TestName) {
+  ... test body ...
+}
+```
+El primer parámetro de la macro TEST (`TestSuiteName`) es el nombre que se le da a un conjunto de tests
+relacionados mientras que el segundo parámetro es el nombre que se le ha dado al test.
+
+El test del fichero `test_date` es un ejemplo que comprueba métodos de una clase definida por el
+usuario.
+En este caso el test comprueba un par de métodos de la clase `Date`.
+
+Los ficheros `test/sample2_unittest.cc` y  `src/sample2.*` están tomados de
+[Googletest Samples](https://github.com/google/googletest/blob/master/googletest/docs/samples.md) 
+donde se pueden hallar ejemplos adicionales de tests.
+
+Estudie los tests que figuran en el directorio `gtests/test` para las diferentes funciones del ejemplo,
+conjuntamente con la documentación del 
+[Googletest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
+para aprender sobre los diferentes tipos de 
+[aserciones](https://es.wikipedia.org/wiki/Aserci%C3%B3n_(inform%C3%A1tica))
+y comparaciones que soporta la plataforma para realizar sus tests.
+
+En todos los programas C++ que desarrolle de ahora en adelante, utilice siempre gtests para comprobar la
+corrección de todas sus funciones y métodos.
+El enfoque (TDD) le ayudará a hallar los bugs de forma temprana de modo que podrá solucionarlos con un menor
+coste en tiempo y esfuerzo.
+La técnica de *testing* es fundamental para detectar cuanto antes potenciales errores.
+Las funciones que han sido comprobadas mediante tests unitarios son siempre más fiables.
+Para cada función que escriba de ahora en adelante, comience siempre por escribir antes que el código de la
+función, al menos dos tests: uno para las situaciones "normales" y otro para situaciones "extremas".
+
+La regla a seguir de ahora en adelante es **Convierta en un hábito la escritura de tests para sus programas**.
+Desarrolle siempre sus funciones iterando el famoso ciclo TDD que ya se ha expuesto en este documento:
+* Escriba un test que falle y que define una mejora deseada o una nueva función
+* Escirba el código (función, método) que haga que la prueba pase satisfactoriamente 
+* Finalmente refactoriza el nuevo código hasta obtener un resultado satisfactorio
+
+Es fácil encontrar en la web mucha documentación sobre TDD. 
+A modo de ejemplo e introducción se recomienda el estudio de
+[Mejorar la calidad del código mediante la prueba unitaria](https://www.mql5.com/es/articles/1579).
+
+#####################################
 ### Trabajo previo
 Antes de realizar los ejercicios de esta práctica, estudie detenidamente el Capítulo 12 (epígrafes 12.1-12.15) del
 [tutorial learncpp](https://www.learncpp.com/cpp-tutorial/81-welcome-to-object-oriented-programming/).
