@@ -234,7 +234,8 @@ A modo de ejemplo e introducción se recomienda el estudio de
 
 ### Trabajo previo
 Antes de realizar los ejercicios de esta práctica, estudie detenidamente los capítulo 12 y 13(epígrafes 12.1-12.15, 13.1-13.13) del
-[tutorial learncpp](https://www.learncpp.com/cpp-tutorial/81-welcome-to-object-oriented-programming/).
+[tutorial](https://www.learncpp.com/cpp-tutorial/81-welcome-to-object-oriented-programming/)
+de referencia en la asignatura.
 Muchos de los ejemplos de ese tutorial son los mismos que se utilizan en las clases de la asignatura,
 cuyo material (transparencias y códigos de ejemplo) debiera Ud. también estudiar.
 Las transparencias de la asignatura debieran servirle de guía a la hora de determinar qué partes del tutorial
@@ -243,7 +244,6 @@ ha de estudiar con mayor profundidad.
 Ponga especial atención en estos ejercicios en seguir las normas de *Buenas prácticas* de programación a la
 hora de diseñar programas orientados a objetos que se indican en las transparencias de la asignatura.
 
-### Ejercicios
 * Al realizar los ejercicios cree dentro de su repositorio de esta práctica un directorio diferente
 con nombre significativo (vectors, compute, fecha, complejos p. ej.) para cada uno de ellos.
 * Tómese como ejemplo el primero de los ejercicios y haga que cada uno de sus programas conste de 3 ficheros:
@@ -281,6 +281,7 @@ desarrollando.
 contendrá la función *main()*) que declare objetos de la clase en cuestión y compruebe el correcto
 funcionamiento de los métodos de la clase.
 
+### Ejercicios
 1. Desarrolle una clase `Vector3D` para representar vectores en el espacio tridimensional.
 La clase contemplará métodos al menos para:
 * Imprimir en pantalla las componentes de un vector en un formato adecuado 
