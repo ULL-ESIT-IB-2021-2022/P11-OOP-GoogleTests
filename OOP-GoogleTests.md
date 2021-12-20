@@ -320,7 +320,7 @@ de Jutge).
 [mutuamente primos](https://en.wikipedia.org/wiki/Coprime_integers),
 es decir, si su único divisor común es el 1
 
-La función *main* del programa que usara esta clase podría contener sentencias como:
+La función *main* del programa que usara esta clase podría contener, entre otras, sentencias como:
 ```
 main() {
   ComputeInt computation; 
@@ -334,16 +334,15 @@ main() {
 3. La clase Fecha.
 
 Desarrolle una clase `Fecha` que permita representar y gestionar fechas.
-Incorpore en la clase los miembros de datos y métodos que considere adecuados para la finalidad que se
-persigue en este ejercicio.
-Desarrolle para esta clase la sobrecarga de los operadores de inserción y extracción en flujos así como el
+Incorpore en la clase los miembros de datos (atributos) y métodos que considere adecuados.
+Implemente para la clase la sobrecarga de los operadores de inserción y extracción en flujos así como el
 operador de comparación que permita determinar si una fecha es menor (anterior cronológicamente) que otra.
 Incluya asimismo un método que permita determinar si el año correspondiente a una fecha es un año bisiesto o
 no.
 Resuelva el problema 
 [Valid Dates](https://jutge.org/problems/P58459_en)
 de Jutge y súbalo a la plataforma para su evaluación.
-A partir de la solución de ese problema haga que el constructor de la clase `Fecha` solo admita una fecha si
+A partir de la solución de ese problema haga que los constructores de la clase `Fecha` solo admitan una fecha si
 es válida.
 Resuelva igualmente el problema
 [Leap years](https://jutge.org/problems/P43135_en)
@@ -366,7 +365,7 @@ puede representarse como la suma de un número real y un número imaginario, de 
 término `a` es la parte real, `b` la parte imaginaria e `i` la
 [unidad imaginaria](https://es.wikipedia.org/wiki/Unidad_imaginaria).
 
-En este ejercicio se propone desarrollar una clase `Complejo` que permita operar con números complejos.
+En este ejercicio se propone desarrollar una clase `Complejo` que permita representar y operar con números complejos.
 
 Separe el diseño de su clase `Complejo` en dos ficheros, `complejo.h` y `complejo.cc` conteniendo
 respectivamente la declaración y la definición de la clase.
@@ -394,8 +393,6 @@ main() {
 }
 ```
 Incluya (discrecionalmente) cualesquiera otras operaciones que considere adecuadas como métodos en la clase `Complejo`.
-
-Desarrolle un conjunto de tests (gtest) que incluya al menos dos tests para cada uno de los métodos que incluya en su programa.
 
 ### Referencias
 * [Desarrollo dirigido por Tests](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas)
