@@ -17,8 +17,12 @@
  */
 class Vector {
  public:
-  Vector() : x_{0.0}, y_{0.0}, z_{0.0} {}       
-  Vector(double x, double y, double z) : x_{x}, y_{y}, z_{z} {}
+  Vector() : x_{0.0}, y_{0.0}, z_{0.0} {
+    std::cout << "Ejecutado el constructor por defecto de Vector." << std::endl;
+  }       
+  Vector(double x, double y, double z) : x_{x}, y_{y}, z_{z} {
+    std::cout << "Ejecutado el constructor con parámetros de Vector." << std::endl;
+  }
   double x() const { return x_; } // Getter
   double y() const { return y_; }
   double z() const { return z_; }
