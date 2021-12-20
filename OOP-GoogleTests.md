@@ -1,4 +1,4 @@
-# Práctica 11. Programación Orientada a Objetos. Google Tests.
+# Práctica 11. Programación Orientada a Objetos. Tests Unitarios. Google Tests.
 
 # Factor de ponderación: 10
 
@@ -6,11 +6,10 @@
 Los objetivos de esta práctica son que el alumnado:
 * Desarrolle programas sencillos en C++ utilizando clases, así como todas las características del lenguaje estudiadas anteriormente
 * Conozca el framework de testing de Google (Google Tests) y sea capaz de desarrollar tests unitarios sencillos
-* Conozca la herramienta CMake y sepa usarla para construir sus programas ejecutables
+* Conozca la herramienta CMake y sepa utilizarla para construir sus programas ejecutables
 * Incluya en sus programas comentarios adecuados en el formato requerido por Doxygen
 * Aloje todo el código fuente de sus programas en repositorios privados de GitHub
 * Sepa depurar sus programas usando la interfaz de depuración del VSC
-
 
 ### Rúbrica de evaluacion de esta práctica
 Todo el código que se presente a evaluación ha de cumplir los estándares definidos en la 
@@ -215,7 +214,7 @@ para aprender sobre los diferentes tipos de
 [aserciones](https://es.wikipedia.org/wiki/Aserci%C3%B3n_(inform%C3%A1tica))
 y comparaciones que soporta la plataforma para realizar sus tests.
 
-En todos los programas C++ que desarrolle de ahora en adelante, utilice siempre gtests para comprobar la
+En todos los programas C++ que desarrolle de ahora en adelante, utilice siempre tests unitarios para comprobar la
 corrección de todas sus funciones y métodos.
 El enfoque (TDD) le ayudará a hallar los bugs de forma temprana de modo que podrá solucionarlos con un menor
 coste en tiempo y esfuerzo.
@@ -273,8 +272,11 @@ propuestos sería la siguiente:
 ```
 * Desarrolle cada ejercicio de forma incremental, probando cada una de las funciones que va Ud.
 desarrollando. 
-* **Antes** de desarrollar el código de cualquiera de los métodos de una determinada clase, desarrolle antes
-  los test que utilizará para validar el código correspondiente a ese método.
+* Al realizar los ejercicios, ponga en práctica el ciclo de desarrollo TDD:
+  * **Antes** de desarrollar el código de cualquiera de los métodos de una determinada clase, comience por desarrollar 
+  los test unitarios que utilizará para validar el código correspondiente a ese método.
+  * Desarrolle a continuación el código del método.
+  * Refactorice el nuevo código hasta que funcione como desea.
 * Utilice el depurador integrado de VSC para depurar los programas de modo que funcionen correctamente.
 * Todos estos programas han de tomar su entrada (si es que hay alguna) como parámetros pasados por línea de comandos.
 * Para cada una de las clases que se pide desarrollar, desarrolle también un programa cliente (el que
