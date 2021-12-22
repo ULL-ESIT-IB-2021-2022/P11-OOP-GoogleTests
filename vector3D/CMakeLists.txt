@@ -63,5 +63,5 @@ target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
 target_compile_features(runTests PRIVATE cxx_std_17)
 
 # Add compile options to a target.
-target_compile_options(runTests PRIVATE -Wall -Wextra -Wpedantic)
-target_compile_options(vector_main PRIVATE -Wall -Wextra -Wpedantic)
+target_compile_options(runTests PRIVATE -Wall -Wextra -Wpedantic -Weffc++)
+target_compile_options(vector_main PRIVATE -Wall -Wextra -Wpedantic -Weffc++)
