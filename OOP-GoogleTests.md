@@ -203,12 +203,12 @@ El test del fichero `test_date.cc` es un ejemplo que comprueba métodos de la cl
 usuario (ficheros `date.cc` y `date.h`.
 
 Los ficheros `test/sample2_unittest.cc` y  `src/sample2.*` están tomados de
-[Googletest Samples](https://github.com/google/googletest/blob/master/googletest/docs/samples.md) 
+[Googletest Samples](http://google.github.io/googletest/samples.html)
 donde se pueden hallar ejemplos adicionales de tests.
 
 Estudie los tests que figuran en el directorio `gtests/test` para las diferentes funciones del ejemplo,
 conjuntamente con la documentación del 
-[Googletest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
+[Googletest Primer](http://google.github.io/googletest/primer.html)
 para aprender sobre los diferentes tipos de 
 [aserciones](https://es.wikipedia.org/wiki/Aserci%C3%B3n_(inform%C3%A1tica))
 y comparaciones que soporta la plataforma para realizar sus tests.
