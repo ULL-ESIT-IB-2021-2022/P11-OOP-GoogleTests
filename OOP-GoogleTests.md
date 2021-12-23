@@ -399,7 +399,7 @@ Incluya (discrecionalmente) cualesquiera otras operaciones que considere adecuad
 * [Google Test](https://en.wikipedia.org/wiki/Google_Test)
 * [Cómo usar Google Test para C++ en VSC](https://docs.microsoft.com/es-es/visualstudio/test/how-to-use-google-test-for-cpp?view=vs-2019), 
 * [Google Tests build instructions](https://github.com/google/googletest/blob/master/googletest/README.md#standalone-cmake-project)
-* [Googletest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
+* [Googletest Primer](http://google.github.io/googletest/primer.html)
 * [Mejorar la calidad del código mediante la prueba unitaria](https://www.mql5.com/es/articles/1579).
 * [Google Test + gcover. Una lista de recetas](https://usingstdcpp.files.wordpress.com/2016/11/gtest.pdf)
 * [CMake](https://es.wikipedia.org/wiki/CMake)
