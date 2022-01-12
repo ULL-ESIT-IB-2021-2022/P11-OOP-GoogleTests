@@ -10,9 +10,14 @@
  * @param[in] epsilon Precision for the comparison. It defaults
  * @see https://www.tutorialspoint.com/floating-point-comparison-in-cplusplus
  * @see https://stackoverflow.com/a/17341/12791643
+ * @return bool indicates if number1 is (approximately equal) to number2 
+ *         If |n1| < |n2]
+ *           returns (|n1-n2] <= |n2|)
+ *         else
+ *           returns (|n1-n2] <= |n1| * epsilon)
  */
 bool AreEqual(const double number1, const double number2, const double epsilon = 1e-10) {
-  const bool result = fabs(number1 - number2) <= ((fabs(number1) < fabs(number2) ? fabs(number2) : fabs(number1)) * epsilon);
+  const bool kResult = fabs(number1 - number2) <= ((fabs(number1) < fabs(number2) ? fabs(number2) : fabs(number1)) * epsilon);
   // if (result == false) {  // Para depuración
   //   std::cout << std::setprecision(20);
   //   std::cout << "Epsilon:    " << epsilon << std::endl;
@@ -20,7 +25,7 @@ bool AreEqual(const double number1, const double number2, const double epsilon =
   //   std::cout << "Número2:    " << number2 << std::endl;
   //   std::cout << "Difference: " << fabs(number1 - number2) << std::endl;
   // }
-  return result;
+  return kResult;
 }
 
 /**
